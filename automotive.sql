@@ -79,11 +79,17 @@ CREATE DATABASE "indexed_cars" OWNER "indexed_car_user";
 -- Write the following statements in `indexing.sql`
 
 -- 1. Create a query to get a list of all `make_title` values from the `car_models` table where the `make_code` is `'LAM'`, without any duplicate rows, and note the time somewhere. (should have 1 result)
+
+
 -- SELECT make_title
 --   FROM car_models
 --   WHERE make_code = 'LAM'
---   LIMIT 1;
+  -- LIMIT 1;
 
+SELECT DISTINCT make_title
+    FROM car_models
+    WHERE make_code = 'LAM'
+    LIMIT 1;
 --   -- 2.869  >  2.051 > 1.772
 
 
@@ -122,6 +128,14 @@ CREATE DATABASE "indexed_cars" OWNER "indexed_car_user";
 ----------------------------------------------------------------
 ----------------------------------------------------------------
 ----------------------------------------------------------------
+DROP INDEX make_title;
+DROP INDEX model_title;
+DROP INDEX make_code;
+
+CREATE INDEX make_title ON car_models (make_title);
+CREATE INDEX model_title ON car_models (model_title);
+CREATE INDEX make_code ON car_models (make_code, model_code, model_title);
+
 
 -- Compare the times of the queries before and after the table has been indexes.
 
@@ -134,6 +148,21 @@ CREATE DATABASE "indexed_cars" OWNER "indexed_car_user";
 -- 1. Run the provided `scripts/car_models.sql` script on the `indexed_cars` database
 -- 1. Run the provided `scripts/car_model_data.sql` script on the `indexed_cars` database **10 times**
 --    _there should be **223380** rows in `car_models`_
+
+-- DROP TABLE car_models;
+-- \i scripts/car_models.sql;
+
+-- \i scripts/car_model_data.sql;
+-- \i scripts/car_model_data.sql;
+-- \i scripts/car_model_data.sql;
+-- \i scripts/car_model_data.sql;
+-- \i scripts/car_model_data.sql;
+-- \i scripts/car_model_data.sql;
+-- \i scripts/car_model_data.sql;
+-- \i scripts/car_model_data.sql;
+-- \i scripts/car_model_data.sql;
+-- \i scripts/car_model_data.sql;
+
 
 -- end
 \c user;
