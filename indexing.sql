@@ -102,9 +102,9 @@ CREATE INDEX make_code ON car_models (make_code, model_code, model_title);
 
 
 -- 1. Create a query to list all `make_code`, `model_code`, `model_title`, and year from `car_models` where the `make_code` is `'LAM'`, and note the time somewhere. (should have 1360 rows)
-SELECT make_code, model_code, model_title, year
-  FROM car_models
-  WHERE make_code = 'LAM';
+-- SELECT make_code, model_code, model_title, year
+--   FROM car_models
+--   WHERE make_code = 'LAM';
 
 -- 49.217 > 22.227 > 26.07 > 1.765
 
@@ -115,13 +115,13 @@ SELECT make_code, model_code, model_title, year
 --   WHERE year > '2010'
 --   AND year < '2015';
 
--- --  53.00  > 52.566 > 54.522
+-- --  53.00  > 52.566 > 54.522 > 45.792
 
 -- 1. Create a query to list all fields from all `car_models` in the year of `2010`, and note the time somewhere (should have 13140 rows)
 -- SELECT *
 -- FROM car_models WHERE year = '2010';
 
--- 32.49 > 31.473
+-- 32.49 > 31.473 > 28.307
 
 ----------------------------------------------------------------
 ----------------------------------------------------------------
@@ -144,19 +144,19 @@ SELECT make_code, model_code, model_title, year
 -- 1. Run the provided `scripts/car_model_data.sql` script on the `indexed_cars` database **10 times**
 --    _there should be **223380** rows in `car_models`_
 
--- DROP TABLE car_models;
--- \i scripts/car_models.sql;
+DROP TABLE car_models;
+\i scripts/car_models.sql;
 
--- \i scripts/car_model_data.sql;
--- \i scripts/car_model_data.sql;
--- \i scripts/car_model_data.sql;
--- \i scripts/car_model_data.sql;
--- \i scripts/car_model_data.sql;
--- \i scripts/car_model_data.sql;
--- \i scripts/car_model_data.sql;
--- \i scripts/car_model_data.sql;
--- \i scripts/car_model_data.sql;
--- \i scripts/car_model_data.sql;
+\i scripts/car_model_data.sql;
+\i scripts/car_model_data.sql;
+\i scripts/car_model_data.sql;
+\i scripts/car_model_data.sql;
+\i scripts/car_model_data.sql;
+\i scripts/car_model_data.sql;
+\i scripts/car_model_data.sql;
+\i scripts/car_model_data.sql;
+\i scripts/car_model_data.sql;
+\i scripts/car_model_data.sql;
 
 \timing
 -- end
